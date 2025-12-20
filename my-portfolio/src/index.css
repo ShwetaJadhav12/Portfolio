@@ -30,6 +30,11 @@ html {
 
 *{
   font-family: Montserrat;
+  
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 @theme {
   --color-dark-100:#1a1a1a;
