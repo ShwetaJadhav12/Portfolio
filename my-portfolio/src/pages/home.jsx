@@ -76,7 +76,7 @@ const Home = () => {
     return (
         <>
             {/* ================= HERO ================= */}
-          <section
+         <section
   id="home"
   className="
     relative overflow-hidden
@@ -87,38 +87,65 @@ const Home = () => {
     flex items-center justify-center
   "
 >
-  {/* ===== BACKGROUND EFFECTS ===== */}
 
-  {/* Purple glow */}
-  <div className="absolute -top-40 -left-40 w-[520px] h-[520px] bg-purple-500/25 blur-[180px] rounded-full"></div>
+  {/* ===== ANIMATED LINE BACKGROUND ===== */}
+  <div className="pointer-events-none absolute inset-0 opacity-[0.18]">
+    <svg
+      className="w-full h-full"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#a855f7" />
+          <stop offset="100%" stopColor="#6b21a8" />
+        </linearGradient>
 
-  {/* Right glow */}
-  <div className="absolute top-1/3 -right-40 w-[520px] h-[520px] bg-purple-500/15 blur-[180px] rounded-full"></div>
+        <pattern id="gridLines" width="140" height="140" patternUnits="userSpaceOnUse">
+          <path
+            d="M 0 0 L 140 0 M 0 0 L 0 140"
+            stroke="url(#lineGrad)"
+            strokeWidth="1"
+            opacity=".6"
+          />
+        </pattern>
+      </defs>
 
-  {/* Dot grid */}
-  <div className="absolute inset-0 bg-[url('https://api.iconify.design/mdi:dots-grid.svg?color=ffffff')] opacity-[0.035]"></div>
+      <rect
+        width="100%"
+        height="100%"
+        fill="url(#gridLines)"
+        className="animate-lineDrift"
+      />
+    </svg>
+  </div>
 
-  {/* ===== CONTENT ===== */}
-  <div className="relative z-10 max-w-2xl w-full text-center">
+  {/* ===== FLOATING GLOW BACKGROUNDS ===== */}
+  <div className="absolute -top-40 -left-40 w-[520px] h-[520px] 
+    bg-purple-500/25 blur-[180px] rounded-full animate-floatSlow"></div>
 
-    {/* Heading */}
+  <div className="absolute top-1/3 -right-40 w-[520px] h-[520px] 
+    bg-purple-500/15 blur-[180px] rounded-full animate-floatReverse"></div>
+
+  <div className="absolute inset-0 bg-[url('https://api.iconify.design/mdi:dots-grid.svg?color=ffffff')]
+    opacity-[0.035]"></div>
+
+  {/* ===== CONTENT (FLOATING SOFTLY) ===== */}
+  <div className="relative z-10 max-w-2xl w-full text-center animate-breathe">
+
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-      Hi, I’m{" "}
-      <span className="text-purple-400">{homeData.name}</span>
+      Hi, I’m <span className="text-purple-400">{homeData.name}</span>
     </h1>
 
-    {/* Typewriter role */}
     <h2 className="mt-4 text-xl sm:text-2xl md:text-3xl font-semibold text-white/90">
       {roles[index].substring(0, subIndex)}
       <span className="text-purple-400">{cursor ? "|" : " "}</span>
     </h2>
 
-    {/* Description */}
     <p className="mt-6 text-white/70 text-base sm:text-lg leading-relaxed">
       {homeData.description}
     </p>
 
-    {/* Social Icons */}
     <div className="mt-8 flex justify-center gap-4">
       {[
         { Icon: FaGithub, link: "https://github.com/yourusername" },
@@ -131,11 +158,8 @@ const Home = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="
-            group relative
-            w-11 h-11
-            flex items-center justify-center
-            rounded-full
-            bg-[#1f1f1f]
+            group relative w-11 h-11 flex items-center justify-center
+            rounded-full bg-[#1f1f1f]
             border border-white/10
             transition-all duration-300
             hover:scale-110
@@ -147,8 +171,7 @@ const Home = () => {
           <span className="
             absolute inset-0
             bg-gradient-to-br from-purple-600 to-purple-800
-            opacity-0
-            group-hover:opacity-100
+            opacity-0 group-hover:opacity-100
             transition-opacity duration-300
           "></span>
 
@@ -157,7 +180,6 @@ const Home = () => {
       ))}
     </div>
 
-    {/* CTA Buttons */}
     <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center">
 
       <a
@@ -176,8 +198,7 @@ const Home = () => {
         <span className="
           absolute inset-0
           bg-gradient-to-r from-purple-600 to-purple-800
-          translate-x-[-100%]
-          group-hover:translate-x-0
+          -translate-x-full group-hover:translate-x-0
           transition-transform duration-500
         "></span>
         <span className="relative z-10">View Work</span>
@@ -188,11 +209,9 @@ const Home = () => {
         className="
           group relative inline-flex items-center justify-center
           px-8 py-3 rounded-xl font-semibold
-          text-purple-400
-          border border-purple-400
+          text-purple-400 border border-purple-400
           transition-all duration-300
-          hover:text-white
-          hover:scale-105
+          hover:text-white hover:scale-105
           hover:shadow-[0_0_28px_rgba(168,85,247,0.45)]
           overflow-hidden
         "
@@ -200,8 +219,7 @@ const Home = () => {
         <span className="
           absolute inset-0
           bg-gradient-to-r from-purple-600 to-purple-800
-          opacity-0
-          group-hover:opacity-100
+          opacity-0 group-hover:opacity-100
           transition-opacity duration-300
         "></span>
         <span className="relative z-10">Contact Me</span>
@@ -209,52 +227,142 @@ const Home = () => {
 
     </div>
   </div>
+
+  {/* ===== ANIMATION KEYFRAMES ===== */}
+  <style>
+    {`
+      @keyframes lineDrift {
+        0% { transform: translateY(0) translateX(0); }
+        100% { transform: translateY(-120px) translateX(-120px); }
+      }
+      .animate-lineDrift { animation: lineDrift 18s linear infinite; }
+
+      @keyframes floatSlow {
+        0% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(-25px) translateX(15px); }
+        100% { transform: translateY(0px) translateX(0px); }
+      }
+      .animate-floatSlow { animation: floatSlow 14s ease-in-out infinite; }
+
+      @keyframes floatReverse {
+        0% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(25px) translateX(-20px); }
+        100% { transform: translateY(0px) translateX(0px); }
+      }
+      .animate-floatReverse { animation: floatReverse 16s ease-in-out infinite; }
+
+      @keyframes breathe {
+        0% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-6px) scale(1.01); }
+        100% { transform: translateY(0) scale(1); }
+      }
+      .animate-breathe { animation: breathe 9s ease-in-out infinite; }
+    `}
+  </style>
 </section>
 
 
 
-            {/* ============== ABOUT SECTION ============== */}
+
+{/* ============== ABOUT SECTION ============== */}
 <section
   id="about"
-  className="relative py-32 px-6 md:px-16 lg:px-14 bg-[#0d0d0f] text-white overflow-hidden"
+  className="
+    relative py-32 px-6 md:px-16 lg:px-14
+    bg-[#0d0d0f] text-white overflow-hidden
+  "
 >
-  {/* Background texture */}
+
+  {/* ===== Animated gradient line grid ===== */}
+  <div className="pointer-events-none absolute inset-0 opacity-[0.18]">
+    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="aboutGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#a855f7" />
+          <stop offset="100%" stopColor="#6b21a8" />
+        </linearGradient>
+
+        <pattern id="aboutGrid" width="160" height="160" patternUnits="userSpaceOnUse">
+          <path
+            d="M 0 0 L 160 0 M 0 0 L 0 160"
+            stroke="url(#aboutGrad)"
+            strokeWidth="1"
+            opacity=".5"
+          />
+        </pattern>
+      </defs>
+
+      <rect
+        width="100%"
+        height="100%"
+        fill="url(#aboutGrid)"
+        className="animate-aboutGridMove"
+      />
+    </svg>
+  </div>
+
+  {/* ===== Floating aurora waves ===== */}
+  <div className="
+    absolute -top-24 -left-24 w-[480px] h-[480px]
+    bg-purple-500/20 blur-[160px] rounded-full
+    animate-floatSlow
+  "></div>
+
+  <div className="
+    absolute bottom-0 right-0 w-[520px] h-[520px]
+    bg-purple-400/15 blur-[180px] rounded-full
+    animate-floatReverse
+  "></div>
+
+  {/* ===== Soft curved light beam ===== */}
+  <div className="
+    absolute left-1/2 top-1/3 -translate-x-1/2
+    w-[900px] h-[260px]
+    bg-gradient-to-r from-transparent via-purple-500/12 to-transparent
+    blur-2xl
+    rotate-[8deg]
+    animate-beamGlow
+  "></div>
+
+  
+
+  {/* ===== Background texture (kept) ===== */}
   <div className="absolute inset-0 bg-[url('https://api.iconify.design/mdi:dots-grid.svg?color=222222')] opacity-[0.04]"></div>
 
-  {/* Soft glows */}
-  <div className="absolute -top-24 -left-24 w-96 h-96 bg-purple-500/15 blur-[140px] rounded-full"></div>
-  <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-purple-400/10 blur-[160px] rounded-full"></div>
 
+  {/* =================================================
+      ==============  CONTENT — UNCHANGED  ============
+      ================================================= */}
   <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-start z-10">
 
-    {/* ================= LEFT — CONTENT ================= */}
+    {/* LEFT SIDE */}
     <div>
-
       <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
         About <span className="text-purple-400">Me</span>
       </h2>
 
-      {/* Accent underline */}
       <div className="h-[3px] w-24 bg-gradient-to-r from-purple-400 to-purple-600 mb-8 rounded-full"></div>
 
-      {/* Tagline */}
       <p className="text-purple-400 font-medium text-lg mb-4">
         Turning ideas into clean, user-focused digital experiences
       </p>
 
-      {/* Description */}
       <p className="text-gray-300 text-lg leading-relaxed mb-10">
         I’m Shweta — a developer who enjoys crafting smooth and meaningful
         digital experiences. I blend design clarity with strong technical
         thinking to create apps and websites that feel modern, intuitive,
         and enjoyable to use.
       </p>
+
       <p className="text-gray-300 text-lg leading-relaxed mb-10">
         I am passionate about learning new technologies and continuously improving my skills.
-        Quick learner and a team player, I thrive in collaborative environments where I can contribute to impactful projects.
-        </p>
+        Quick learner and a team player, I thrive in collaborative environments where I can
+        contribute to impactful projects.
+      </p>
+
       <p className="text-gray-300 text-lg leading-relaxed mb-10">
-        My strong problem-solving skills and attention to detail make me a valuable asset to any development team.
+        My strong problem-solving skills and attention to detail make me a valuable asset
+        to any development team.
       </p>
 
       {/* Stats */}
@@ -279,64 +387,131 @@ const Home = () => {
               hover:shadow-[0_10px_30px_rgba(168,85,247,0.2)]
             "
           >
-            <h3 className="text-3xl font-bold text-purple-400">
-              {stat.value}
-            </h3>
-            <p className="text-gray-400 mt-1 text-sm">
-              {stat.label}
-            </p>
+            <h3 className="text-3xl font-bold text-purple-400">{stat.value}</h3>
+            <p className="text-gray-400 mt-1 text-sm">{stat.label}</p>
           </div>
         ))}
       </div>
     </div>
 
-    {/* ================= RIGHT — FEATURE CARDS ================= */}
-    <div className="grid gap-8">
-      {aboutInfo.map((item, index) => {
-        const Icon = item.icon;
-        return (
-          <div
-            key={index}
-            className="
-              reveal
-              group relative
-              rounded-2xl
-              p-[2px]
-              bg-gradient-to-r from-purple-500/30 to-purple-700/30
-              transition-all duration-500
-              hover:from-purple-400 hover:to-purple-600
-            "
-          >
-            <div
-              className="
-                bg-[#151515]
-                rounded-2xl
-                p-6
-                transition-all duration-500
-                group-hover:bg-[#1c1c1c]
-                group-hover:-translate-y-1
-                group-hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]
-              "
-            >
-              <div className="flex items-center gap-4 mb-3">
-                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-purple-500/10">
-                  <Icon className={`${item.color} text-xl`} />
-                </div>
-                <h3 className="text-xl font-semibold">
-                  {item.title}
-                </h3>
-              </div>
 
-              <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition">
-                {item.description}
-              </p>
+    {/* RIGHT SIDE — FEATURE CARDS */}
+    <div className="grid gap-8">
+  {aboutInfo.map((item, index) => {
+    const Icon = item.icon;
+    return (
+      <div
+        key={index}
+        className="
+          reveal
+          group relative
+          rounded-2xl
+          p-[2px]
+          bg-gradient-to-r from-purple-500/30 to-purple-700/30
+          transition-all duration-500
+          hover:from-purple-400 hover:to-purple-600
+          animate-cardFloat
+        "
+        style={{ animationDelay: `${index * 0.6}s` }}
+      >
+        <div
+          className="
+            bg-[#151515]
+            rounded-2xl
+            p-6
+            transition-all duration-500
+            group-hover:bg-[#1c1c1c]
+            group-hover:-translate-y-1
+            group-hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]
+          "
+        >
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-purple-500/10">
+              <Icon className={`${item.color} text-xl`} />
             </div>
+            <h3 className="text-xl font-semibold">{item.title}</h3>
           </div>
-        );
-      })}
-    </div>
+
+          <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
 
   </div>
+
+
+  {/* ===== ANIMATION KEYFRAMES ===== */}
+  <style>
+    {`
+
+      @keyframes aboutGridMove {
+        0% { transform: translateX(0) translateY(0); }
+        100% { transform: translateX(-140px) translateY(-140px); }
+      }
+      .animate-aboutGridMove { animation: aboutGridMove 22s linear infinite; }
+
+      @keyframes floatSlow {
+        0% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(-28px) translateX(18px); }
+        100% { transform: translateY(0) translateX(0); }
+      }
+      .animate-floatSlow { animation: floatSlow 16s ease-in-out infinite; }
+
+      @keyframes floatReverse {
+        0% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(28px) translateX(-18px); }
+        100% { transform: translateY(0) translateX(0); }
+      }
+      .animate-floatReverse { animation: floatReverse 18s ease-in-out infinite; }
+
+      @keyframes beamGlow {
+        0% { opacity:.4; transform: rotate(6deg) scale(1); }
+        50% { opacity:.7; transform: rotate(7deg) scale(1.03); }
+        100% { opacity:.4; transform: rotate(6deg) scale(1); }
+      }
+      .animate-beamGlow { animation: beamGlow 12s ease-in-out infinite; }
+
+      @keyframes pulseFloat {
+        0% { transform: translateY(0) scale(.9); opacity:.4; }
+        50% { transform: translateY(-10px) scale(1); opacity:.9; }
+        100% { transform: translateY(0) scale(.9); opacity:.4; }
+      }
+      .animate-pulseFloat { animation: pulseFloat 6s ease-in-out infinite; }
+        @keyframes cardFloat {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translateY(-8px) translateX(4px) rotate(0.3deg) scale(1.01);
+  }
+
+  50% {
+    transform: translateY(-14px) translateX(-6px) rotate(-0.4deg) scale(1.015);
+  }
+
+  75% {
+    transform: translateY(-6px) translateX(3px) rotate(0.2deg) scale(1.01);
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+}
+
+.animate-cardFloat {
+  animation: cardFloat 14s cubic-bezier(.4, .0, .2, 1) infinite;
+  will-change: transform;
+}
+
+`}
+    
+  </style>
 </section>
 
 
@@ -344,86 +519,103 @@ const Home = () => {
 
 <section
   id="skills"
-  className="relative py-28 px-6 md:px-16 bg-[#0d0d0d] text-white overflow-hidden"
+  className="relative py-28 px-6 md:px-16 bg-[#030303] text-white overflow-hidden"
 >
-  <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/10 blur-[140px] rounded-full"></div>
-  <div className="absolute bottom-0 left-0 w-80 h-80 bg-pink-500/10 blur-[140px] rounded-full"></div>
 
-  <div className="relative max-w-6xl mx-auto z-10">
+  {/* Radial Grid Background */}
+  <div className="absolute inset-0 opacity-[0.18]">
+    <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(168,85,247,.3),transparent_60%)]"></div>
+    <div className="absolute inset-0 bg-[linear-gradient(transparent,transparent,rgba(0,0,0,.6))]"></div>
+  </div>
 
-    <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-      Skills 
-    </h2>
+  {/* Soft rotating halo */}
+  <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px]
+    bg-purple-500/15 blur-[180px] rounded-full animate-[spin_25s_linear_infinite]"
+  ></div>
 
+  <div className="relative max-w-7xl mx-auto z-10">
 
+    {/* Header */}
+    <div className="text-center mb-16">
+      <span className="text-purple-300/80 text-xs tracking-widest uppercase">
+        What I Work With
+      </span>
 
+      <h2 className="text-4xl md:text-5xl font-extrabold mt-3">
+        Skills
+      </h2>
+
+      <p className="text-gray-300 mt-3 max-w-2xl mx-auto">
+        A blend of development skills across Android, Web and modern tools.
+      </p>
+    </div>
+
+    {/* ===== Glass Floating Tile Grid ===== */}
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-    {/* ANDROID */}
-<div className="bg-[#151515]  reveal rounded-3xl p-8
-  border border-purple-500/30
-  transition
-  hover:-translate-y-1
-  hover:border-purple-400
-  hover:shadow-[0_10px_40px_rgba(168,85,247,0.15)]"
+      {/* ANDROID */}
+    <div
+  className="
+    backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
+    shadow-[0_0_35px_rgba(168,85,247,.12)]
+    transition-all duration-500
+    hover:-translate-y-1
+    hover:border-purple-400
+    hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
+    animate-skillFloat
+  "
+  style={{ animationDelay: `${index * 0.6}s` }}
 >
-  <h3 className="text-xl font-semibold mb-5 text-white">
-    Android Development
-  </h3>
 
-  <div className="flex flex-wrap gap-3">
 
-    {/* Skills WITH logos */}
-    {[
-      { name: "Kotlin", logo: assets.techLogos.kotlin },
-      { name: "Jetpack Compose", logo: assets.techLogos.jetpack },
-      { name: "Firebase", logo: assets.techLogos.firebase },
-      { name: "Android Studio", logo: assets.techLogos.android_studio },
-    ].map((skill, i) => (
-      <div
-        key={i}
-        className="flex items-center gap-2 px-4 py-2 bg-[#1f1f1f] rounded-full text-sm text-gray-300 hover:text-white hover:bg-[#262626] transition"
-      >
-        <img
-          src={skill.logo}
-          alt={skill.name}
-          className="w-4 h-4 object-contain"
-        />
-        <span>{skill.name}</span>
+        <h3 className="text-xl font-semibold mb-5">
+          Android Development
+        </h3>
+
+        <div className="flex flex-wrap gap-3">
+          {[
+            { name: "Kotlin", logo: assets.techLogos.kotlin },
+            { name: "Jetpack Compose", logo: assets.techLogos.jetpack },
+            { name: "Firebase", logo: assets.techLogos.firebase },
+            { name: "Android Studio", logo: assets.techLogos.android_studio },
+          ].map((s,i)=>(
+            <div key={i}
+              className="flex items-center gap-2 px-4 py-2
+              bg-white/10 rounded-full text-sm text-gray-200
+              border border-white/10 hover:bg-white/20 transition"
+            >
+              <img src={s.logo} className="w-4 h-4" />
+              <span>{s.name}</span>
+            </div>
+          ))}
+
+          {[
+            "MVVM","REST APIs","Room DB","Navigation Component","Material Design"
+          ].map((s,i)=>(
+            <span key={i}
+              className="px-4 py-2 bg-white/10 rounded-full text-sm text-gray-300
+              border border-white/10 hover:bg-white/20 transition">
+              {s}
+            </span>
+          ))}
+        </div>
       </div>
-    ))}
 
-    {/* Skills WITHOUT logos (TEXT ONLY) */}
-    {[
-      "MVVM",
-      "REST APIs",
-      "Room DB",
-      "Navigation Component",
-      "Material Design",
-    ].map((skill, i) => (
-      <span
-        key={`text-${i}`}
-        className="px-4 py-2 bg-[#1f1f1f] rounded-full text-sm text-gray-300 hover:text-white hover:bg-[#262626] transition"
-      >
-        {skill}
-      </span>
-    ))}
-
-  </div>
-</div>
-
-
-      {/* WEB */}
-      <div className="
-      bg-[#151515] reveal rounded-3xl p-8
-  border border-purple-500/30
-  transition
-  hover:-translate-y-1
-  hover:border-purple-400
-  hover:shadow-[0_10px_40px_rgba(168,85,247,0.15)]
-"
-      >
-        <h3 className="text-xl font-semibold mb-5 text-white">
+      {/* FRONTEND */}
+      <div
+        className="
+    backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
+    shadow-[0_0_35px_rgba(168,85,247,.12)]
+    transition-all duration-500
+    hover:-translate-y-1
+    hover:border-purple-400
+    hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
+    animate-skillFloat
+  "
+  style={{ animationDelay: `${index * 0.6}s` }}
+>
+      
+        <h3 className="text-xl font-semibold mb-5">
           Frontend Web
         </h3>
 
@@ -434,44 +626,42 @@ const Home = () => {
             { name: "JavaScript", logo: assets.techLogos.javascript },
             { name: "React", logo: assets.techLogos.reactjs },
             { name: "Tailwind", logo: assets.techLogos.tailwindcss },
-          ].map((skill, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-2 px-4 py-2 bg-[#1f1f1f] rounded-full text-sm text-gray-300 hover:text-white hover:bg-[#262626] transition"
+          ].map((s,i)=>(
+            <div key={i}
+              className="flex items-center gap-2 px-4 py-2
+              bg-white/10 rounded-full text-sm text-gray-200
+              border border-white/10 hover:bg-white/20 transition"
             >
-              <img src={skill.logo} alt={skill.name} className="w-4 h-4 object-contain" />
-              <span>{skill.name}</span>
+              <img src={s.logo} className="w-4 h-4" />
+              <span>{s.name}</span>
             </div>
           ))}
 
-          {[
-      "Vite",
-      "APIs",
-      "Hooks"
-    ].map((skill, i) => (
-      <span
-        key={`text-${i}`}
-        className="px-4 py-2 bg-[#1f1f1f] rounded-full text-sm text-gray-300 hover:text-white hover:bg-[#262626] transition"
-      >
-        {skill}
-      </span>
-    ))}
+          {["Vite","APIs","Hooks"].map((s,i)=>(
+            <span key={i}
+              className="px-4 py-2 bg-white/10 rounded-full text-sm text-gray-300
+              border border-white/10 hover:bg-white/20 transition">
+              {s}
+            </span>
+          ))}
         </div>
       </div>
 
       {/* TOOLS */}
-      <div className="
-      bg-[#151515] rounded-3xl p-8
-  border border-purple-500/30
-  transition
-  reveal
-  
-  hover:-translate-y-1
-  hover:border-purple-400
-  hover:shadow-[0_10px_40px_rgba(168,85,247,0.15)]
-"
-      >
-        <h3 className="text-xl font-semibold mb-5 text-white">
+      <div
+       className="
+    backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
+    shadow-[0_0_35px_rgba(168,85,247,.12)]
+    transition-all duration-500
+    hover:-translate-y-1
+    hover:border-purple-400
+    hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
+    animate-skillFloat
+  "
+  style={{ animationDelay: `${index * 0.6}s` }}
+>
+      
+        <h3 className="text-xl font-semibold mb-5">
           Tools & Workflow
         </h3>
 
@@ -481,13 +671,14 @@ const Home = () => {
             { name: "GitHub", logo: assets.techLogos.github },
             { name: "VS Code", logo: assets.techLogos.vs_code },
             { name: "Vercel", logo: assets.techLogos.vercel },
-          ].map((skill, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-2 px-4 py-2 bg-[#1f1f1f] rounded-full text-sm text-gray-300 hover:text-white hover:bg-[#262626] transition"
+          ].map((s,i)=>(
+            <div key={i}
+              className="flex items-center gap-2 px-4 py-2
+              bg-white/10 rounded-full text-sm text-gray-200
+              border border-white/10 hover:bg-white/20 transition"
             >
-              <img src={skill.logo} alt={skill.name} className="w-4 h-4 object-contain" />
-              <span>{skill.name}</span>
+              <img src={s.logo} className="w-4 h-4" />
+              <span>{s.name}</span>
             </div>
           ))}
         </div>
@@ -495,7 +686,41 @@ const Home = () => {
 
     </div>
   </div>
+
+  {/* ===== Animation Keyframes ===== */}
+  <style>
+    {`
+      @keyframes skillFloat {
+        0% {
+          transform: translateY(0px) translateX(0px) scale(1);
+          box-shadow: 0 0 35px rgba(168,85,247,.12);
+        }
+        50% {
+          transform: translateY(-12px) translateX(8px) scale(1.01);
+          box-shadow: 0 0 55px rgba(168,85,247,.22);
+        }
+        100% {
+          transform: translateY(0px) translateX(0px) scale(1);
+          box-shadow: 0 0 35px rgba(168,85,247,.12);
+        }
+      }
+      
+
+      @keyframes skillFloat {
+  0%   { transform: translateY(0) translateX(0) scale(1); }
+  50%  { transform: translateY(-10px) translateX(6px) scale(1.01); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+
+.animate-skillFloat {
+  animation: skillFloat 14s cubic-bezier(.45,.05,.25,1) infinite;
+  will-change: transform;
+}
+    `}
+  </style>
+
 </section>
+
 
 
         

@@ -23,6 +23,7 @@ import tailwindcss from "./tech_logo/tailwindcss.png";
 import vs_code from "./tech_logo/vs_code.png";
 import vercel from "./tech_logo/vercel.png";
 import android_studio from "./tech_logo/android_studio.png";
+import Learn2Excel from "./pro_logo/Learn2Excel.png";
 
 
 
@@ -94,11 +95,40 @@ export const aboutInfo = [
 
 export const project = [
   {
-    title: "BMI Calculator",
-    image: bmi,
+    title: "FinMate - Personal Finance Manager`",
+    image: Finmate_logo,
     description:
-      "A simple and user-friendly app that helps users track their health  goals by calculating their Body Mass Index based on their weight and height inputs.",
-    techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture"],
+      "A comprehensive personal finance manager app that helps users track expenses, manage budgets, and gain insights into their financial habits.",
+    techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture", "Firebase", "GitHub"],
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/FinMate",
+    liveDemoLink: "#",
+  },
+  
+  {
+    title: "TravelWithUs - Travel Recommendation App",
+    image: travel,
+    description:
+      "A travel recommendation app that provides users with personalized travel suggestions, itineraries, and local insights based on their preferences and interests.",
+    techStack: ["python","Flask","HTML","CSS","JavaScript","Machine Learning"],
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/Travel_Recommendation_System",
+    liveDemoLink: "#",
+  },
+
+  {
+    title: "Learn2Exce- An onLine Skill Development Platform",
+    image: Learn2Excel,
+    description:
+      "An online skill development platform that offers a variety of courses and tutorials to help users enhance their skills and advance their careers.",
+    techStack: ["HTML","CSS","JavaScript",,"NodeJS","ExpressJS","SQL"],
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/Learn2Exce",
+  },
+  
+  {
+    title: "TaskMaster - Task Management App",
+    image: Taskmang,
+    description:
+      "A task management app that helps users organize their daily tasks, set reminders, and track productivity with a clean and intuitive interface.",
+    techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture", "Room DB,Androd Sudio"],
     viewCoodeLink: "#",
     liveDemoLink: "#",
   },
@@ -109,32 +139,6 @@ export const project = [
       "A sleek and modern E-Commerce UI built with React and Tailwind CSS, featuring a responsive design, intuitive navigation, and dynamic product listings to enhance the online shopping experience.",
   techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture","Firebase","GitHub","Razorpay"],
     viewCoodeLink: "#",
-    liveDemoLink: "#",
-  },
-  {
-    title: "FinMate - Personal Finance Manager`",
-    image: Finmate_logo,
-    description:
-      "A comprehensive personal finance manager app that helps users track expenses, manage budgets, and gain insights into their financial habits.",
-    techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture", "Firebase", "GitHub"],
-    viewCoodeLink: "https://github.com/ShwetaJadhav12/FinMate",
-    liveDemoLink: "#",
-  },
-  {
-    title: "TaskMaster - Task Management App",
-    image: Taskmang,
-    description:
-      "A task management app that helps users organize their daily tasks, set reminders, and track productivity with a clean and intuitive interface.",
-    techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture", "Room DB,Androd Sudio"],
-    viewCoodeLink: "#",
-    liveDemoLink: "#",
-  },{
-    title: "TravelWithUs - Travel Recommendation App",
-    image: travel,
-    description:
-      "A travel recommendation app that provides users with personalized travel suggestions, itineraries, and local insights based on their preferences and interests.",
-    techStack: ["python","Flask","HTML","CSS","JavaScript","Machine Learning"],
-    viewCoodeLink: "https://github.com/ShwetaJadhav12/Travel_Recommendation_System",
     liveDemoLink: "#",
   },
   {
@@ -156,15 +160,16 @@ export const project = [
     viewCoodeLink: "https://github.com/ShwetaJadhav12/Power_Bi_sem5?tab=readme-ov-file",
     liveDemoLink: "https://github.com/ShwetaJadhav12/Power_Bi_sem5?tab=readme-ov-file",
   },
-  {
-    title: "Portfolio Website",
-    image: portfolio_img,
+{
+    title: "BMI Calculator",
+    image: bmi,
     description:
-      "A personal portfolio website to showcase my projects, skills, and experience, built with modern web technologies and a responsive design.",
-    techStack: ["ReactJS", "Tailwind CSS", "Vercel","GitHub"],
-    viewCoodeLink: "https://github.com/ShwetaJadhav12/Portfolio",
+      "A simple and user-friendly app that helps users track their health  goals by calculating their Body Mass Index based on their weight and height inputs.",
+    techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture"],
+    viewCoodeLink: "#",
     liveDemoLink: "#",
-  },{
+  },
+   {
     title:"Unit Converter App",
     image:ecom,
     description:
@@ -172,7 +177,7 @@ export const project = [
     techStack: ["Kotlin", "Jetpack Compose"],
     viewCoodeLink: "#",
     liveDemoLink: "",
-  }
+  },
   
 ];
 
@@ -196,7 +201,6 @@ export const experience = [
 /*                                ASSETS EXPORT                               */
 /* -------------------------------------------------------------------------- */
 
-
 export const assets = {
    profileImg,
   codechef,
@@ -208,6 +212,7 @@ export const assets = {
     travel,
     recipe,
     portfolio_img,
+    Learn2Excel
   },
   techLogos: {
     c,
