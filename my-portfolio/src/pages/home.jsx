@@ -811,42 +811,36 @@ const Home = () => {
               ))}
             </div>
 
-            <div className="flex gap-4">
-              <a
-                href={item.viewCoodeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  px-4 py-2
-                  bg-purple-500
-                  rounded-lg
-                  text-white
-                  font-semibold
-                  transition
-                  hover:scale-105
-                "
-              >
-                View Code
-              </a>
+           <div className="flex gap-4">
+  {/* View Code (always visible) */}
+  <a
+    href={item.viewCoodeLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="
+      px-4 py-2 bg-purple-500 rounded-lg text-white font-semibold
+      transition hover:scale-105
+    "
+  >
+    View Code
+  </a>
 
-              <a
-                href={item.liveDemoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  px-4 py-2
-                  border border-purple-500
-                  rounded-lg
-                  text-white
-                  font-semibold
-                  transition
-                  hover:bg-purple-500
-                  hover:scale-105
-                "
-              >
-                Live Demo
-              </a>
-            </div>
+  {/* Live Demo (only if link exists) */}
+  {item.liveDemoLink && (
+    <a
+      href={item.liveDemoLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        px-4 py-2 border border-purple-500 rounded-lg text-white
+        font-semibold transition hover:bg-purple-500 hover:scale-105
+      "
+    >
+      Live Demo
+    </a>
+  )}
+</div>
+
           </div>
 
         </div>
@@ -884,7 +878,7 @@ const Home = () => {
 
   {/* HackerRank */}
   <a
-    href="https://www.hackerrank.com/shwetajadhav2001"
+    href="https://www.hackerrank.com/profile/ShwetaJadhav12"
     target="_blank"
     rel="noopener noreferrer"
     className="
@@ -926,7 +920,7 @@ const Home = () => {
 
  
   <a
-    href="https://leetcode.com/"
+    href="https://leetcode.com/u/F8hOSt3GA9/"
     target="_blank"
     rel="noopener noreferrer"
     className="
@@ -965,7 +959,7 @@ const Home = () => {
 
   {/* GFG */}
   <a
-    href="https://www.geeksforgeeks.org/"
+    href="https://www.geeksforgeeks.org/profile/shwetapjoqtd/"
     target="_blank"
     rel="noopener noreferrer"
     className="
