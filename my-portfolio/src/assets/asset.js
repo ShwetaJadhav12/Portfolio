@@ -23,7 +23,6 @@ import tailwindcss from "./tech_logo/tailwindcss.png";
 import vs_code from "./tech_logo/vs_code.png";
 import vercel from "./tech_logo/vercel.png";
 import android_studio from "./tech_logo/android_studio.png";
-import Learn2Excel from "./pro_logo/Learn2Excel.png";
 
 
 
@@ -212,7 +211,7 @@ export const assets = {
     travel,
     recipe,
     portfolio_img,
-    Learn2Excel
+    Learn2excel
   },
   techLogos: {
     c,
