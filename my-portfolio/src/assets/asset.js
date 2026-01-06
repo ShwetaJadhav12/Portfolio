@@ -39,6 +39,7 @@ import Taskmang from "./pro_logo/Taskmang.png";
 import travel from "./pro_logo/travel.png";
 import recipe from "./pro_logo/recipe.png";
 import portfolio_img from "./pro_logo/portfolio_img.png";
+import Learn2excel from "./pro_logo/Learn2excel.png";
 /* -------------------------------------------------------------------------- */
 /*                                  HOME DATA                                 */
 /* -------------------------------------------------------------------------- */
