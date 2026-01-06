@@ -1135,57 +1135,59 @@ const Home = () => {
 {/* ================= CONTACT SECTION ================= */}
 <section
   id="contact"
-  className="relative py-28 px-6 md:px-16 bg-[#0d0d0f] text-white"
+  className="relative py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-[#0d0d0f] text-white"
 >
-  <div>
-    {/* Heading */}
-    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center">
+  {/* Heading */}
+  <div className="text-center mb-10">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold">
       Get in <span className="text-purple-400">Touch</span>
     </h2>
   </div>
+
   {/* Background glow */}
-  <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-500/15 blur-[160px] rounded-full"></div>
-  <div className="absolute bottom-0 -right-32 w-96 h-96 bg-purple-500/10 blur-[160px] rounded-full"></div>
+  <div className="absolute -top-28 -left-20 w-72 h-72 sm:w-80 sm:h-80 bg-purple-500/15 blur-[120px] rounded-full"></div>
+  <div className="absolute bottom-0 -right-20 w-72 h-72 sm:w-80 sm:h-80 bg-purple-500/10 blur-[120px] rounded-full"></div>
 
-  <div className="relative max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+  {/* Main Grid */}
+  <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
-    {/* ================= LEFT — INFO ================= */}
-    <div className="bg-[#121212] rounded-3xl p-8 md:p-10 border border-white/10">
-      <h3 className="text-2xl font-bold text-purple-400 mb-4">
+    {/* LEFT — INFO */}
+    <div className="bg-[#121212] rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10">
+      <h3 className="text-xl sm:text-2xl font-bold text-purple-400 mb-4">
         Contact Information
       </h3>
 
-      <p className="text-gray-400 mb-10 leading-relaxed">
+      <p className="text-gray-400 mb-8 leading-relaxed text-sm sm:text-base">
         Feel free to reach out through any of the following channels.
         I’m always open to discussing new projects and opportunities.
       </p>
 
-      {/* Info items */}
-      <div className="space-y-6">
+      <div className="space-y-5 sm:space-y-6">
 
         {/* Email */}
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-            <FaEnvelope className="text-purple-400 text-xl" />
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+            <FaEnvelope className="text-purple-400 text-lg sm:text-xl" />
           </div>
           <div>
-            <p className="font-semibold">Email</p>
-            <p className="text-gray-400">shwetajadhav2002@gmail.com</p>
+            <p className="font-semibold text-sm sm:text-base">Email</p>
+            <p className="text-gray-400 text-sm sm:text-base">
+              shwetajadhav2002@gmail.com
+            </p>
           </div>
         </div>
 
-       
-
-        {/* Location */}
-        
       </div>
 
       {/* Divider */}
-      <div className="h-px bg-white/10 my-10"></div>
+      <div className="h-px bg-white/10 my-8 sm:my-10"></div>
 
       {/* Socials */}
-      <h4 className="font-semibold mb-4">Connect With Me</h4>
-      <div className="flex gap-4">
+      <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+        Connect With Me
+      </h4>
+
+      <div className="flex gap-3 sm:gap-4">
         {[FaGithub, FaLinkedinIn].map((Icon, i) => (
           <a
             key={i}
@@ -1193,35 +1195,33 @@ const Home = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              w-12 h-12 rounded-full
+              w-10 h-10 sm:w-12 sm:h-12 rounded-full
               flex items-center justify-center
               bg-[#1f1f1f]
               border border-white/10
-              hover:bg-purple-500
-              hover:scale-110
+              hover:bg-purple-500 hover:scale-110
               transition-all duration-300
             "
           >
-            <Icon className="text-lg text-white" />
+            <Icon className="text-sm sm:text-lg text-white" />
           </a>
         ))}
       </div>
     </div>
 
-    {/* ================= RIGHT — FORM ================= */}
-    <div className="bg-[#121212] rounded-3xl p-8 md:p-10 border border-white/10">
+    {/* RIGHT — FORM */}
+    <div className="bg-[#121212] rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10">
       <form className="space-y-6">
 
         {/* Name & Email */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
             <label className="text-sm text-gray-300 mb-2 block">
               Your Name
             </label>
             <input
               type="text"
-              placeholder="John Doe"
-              className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
 
@@ -1231,13 +1231,10 @@ const Home = () => {
             </label>
             <input
               type="email"
-              placeholder="john@example.com"
-              className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
         </div>
-
-        
 
         {/* Message */}
         <div>
@@ -1246,8 +1243,7 @@ const Home = () => {
           </label>
           <textarea
             rows="5"
-            placeholder="Tell me about your project..."
-            className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-purple-500"
           ></textarea>
         </div>
 
@@ -1257,14 +1253,14 @@ const Home = () => {
           className="
             inline-flex items-center gap-2
             bg-gradient-to-r from-purple-500 to-purple-700
-            px-8 py-3 rounded-full
-            font-semibold
+            px-6 sm:px-8 py-3 rounded-full
+            text-sm sm:text-base font-semibold
             hover:scale-105
             hover:shadow-[0_0_35px_rgba(168,85,247,0.6)]
             transition-all duration-300
           "
         >
-          <FaPaperPlane />
+          <FaPaperPlane className="text-sm sm:text-base" />
           Send Message
         </button>
 
@@ -1273,6 +1269,7 @@ const Home = () => {
 
   </div>
 </section>
+
 
 <footer
   className="relative py-8 px-6 md:px-16 bg-[#0d0d0f] text-white border-t border-white/10"
