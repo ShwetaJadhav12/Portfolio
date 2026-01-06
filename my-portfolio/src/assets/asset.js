@@ -116,7 +116,7 @@ export const project = [
 
   {
     title: "Learn2Exce- An onLine Skill Development Platform",
-    image: Learn2Excel,
+    image: Learn2excel,
     description:
       "An online skill development platform that offers a variety of courses and tutorials to help users enhance their skills and advance their careers.",
     techStack: ["HTML","CSS","JavaScript",,"NodeJS","ExpressJS","SQL"],
