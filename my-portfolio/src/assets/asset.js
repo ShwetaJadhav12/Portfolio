@@ -95,23 +95,23 @@ export const aboutInfo = [
 
 export const project = [
   {
-    title: "FinMate - Personal Finance Manager`",
+    title: "FinMate - Personal Finance Manager App",
     image: Finmate_logo,
     description:
       "A comprehensive personal finance manager app that helps users track expenses, manage budgets, and gain insights into their financial habits.",
     techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture", "Firebase", "GitHub"],
     viewCoodeLink: "https://github.com/ShwetaJadhav12/FinMate",
-    liveDemoLink: "#",
+    
   },
   
   {
-    title: "TravelWithUs - Travel Recommendation App",
+    title: "TravelWithUs - Travel Recommendation Website",
     image: travel,
     description:
       "A travel recommendation app that provides users with personalized travel suggestions, itineraries, and local insights based on their preferences and interests.",
     techStack: ["python","Flask","HTML","CSS","JavaScript","Machine Learning"],
     viewCoodeLink: "https://github.com/ShwetaJadhav12/Travel_Recommendation_System",
-    liveDemoLink: "#",
+    
   },
 
   {
@@ -120,7 +120,7 @@ export const project = [
     description:
       "An online skill development platform that offers a variety of courses and tutorials to help users enhance their skills and advance their careers.",
     techStack: ["HTML","CSS","JavaScript",,"NodeJS","ExpressJS","SQL"],
-    viewCoodeLink: "https://github.com/ShwetaJadhav12/Learn2Exce",
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/Learn2Exce"
   },
   
   {
@@ -148,7 +148,7 @@ export const project = [
       "A recipe search app that allows users to find recipes based on ingredients, dietary preferences, and cooking time, complete with step-by-step instructions and nutritional information.",
     techStack: ["Kotlin", "Jetpack Compose", "Api Integration"],
     viewCoodeLink: "#",
-    liveDemoLink: "#",
+    
   },
   {
     title:"Dashboard Visualization"
@@ -158,7 +158,6 @@ export const project = [
     ,
     techStack: ["Power Bi"],
     viewCoodeLink: "https://github.com/ShwetaJadhav12/Power_Bi_sem5?tab=readme-ov-file",
-    liveDemoLink: "https://github.com/ShwetaJadhav12/Power_Bi_sem5?tab=readme-ov-file",
   },
 {
     title: "BMI Calculator",
@@ -167,7 +166,6 @@ export const project = [
       "A simple and user-friendly app that helps users track their health  goals by calculating their Body Mass Index based on their weight and height inputs.",
     techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture"],
     viewCoodeLink: "#",
-    liveDemoLink: "#",
   },
    {
     title:"Unit Converter App",
@@ -176,7 +174,7 @@ export const project = [
       "A unit converter app that allows users to easily convert between various units of measurement, including length, weight, temperature, and more.",
     techStack: ["Kotlin", "Jetpack Compose"],
     viewCoodeLink: "#",
-    liveDemoLink: "",
+   
   },
   
 ];
@@ -188,11 +186,26 @@ export const project = [
 
 export const experience = [
   {
+    role: "Technical Head",
+    company: "ACM-W Student Chapter, PCCOE",
+    period: "July'25 - Present",
+    description:
+      "Leading the ACM-W Student Chapter at PCCOE, organizing technical workshops, coding competitions, and guest lectures to promote computer science education and foster a collaborative learning environment among members.",
+  },
+
+  {
     role: "Android Developer",
     company: "Tamizhan Skills",
     period: "June'25 - July'25",
     description:
       "Built modern Android applications using Kotlin and Jetpack Compose, focusing on clean architecture, UI performance, and Firebase integration.",
+  },
+  {
+    role: "Member",
+    company: "Institution's Innovation Council",
+    period: "Jan'25 - May'25",
+    description:
+      "Participated in innovation-driven activities, to foster creativity and entrepreneurial skills among students.",
   },
  
 ];

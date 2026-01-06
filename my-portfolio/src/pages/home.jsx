@@ -3,6 +3,8 @@ import { aboutInfo, homeData } from "../assets/asset.js";
 import { assets } from "../assets/asset";
 import { project } from "../assets/asset.js";
 import { experience } from "../assets/asset";
+import { motion } from "framer-motion";
+
 
 import {
   FaGithub,
@@ -745,107 +747,112 @@ const Home = () => {
     <div className="w-14 h-[3px] bg-gradient-to-r from-purple-500 to-pink-500 mb-12"></div>
 
     {/* Projects Grid */}
-    <div className="grid md:grid-cols-3 gap-6">
-      {project.map((item, index) => (
-        <div
-          key={index}
-          className="
-            group relative
-            bg-[#1e1e1e]
-            rounded-2xl
-            overflow-hidden
-            reveal
-            border border-white/10
-            transition-all duration-500
-            hover:-translate-y-2
-            hover:border-purple-400/60
-            hover:shadow-[0_20px_50px_rgba(168,85,247,0.25)]
-          "
-        >
-          {/* Gradient shine */}
-          <div className="
-            absolute inset-0
-            bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10
-            opacity-0
-            group-hover:opacity-100
-            transition duration-500
-            pointer-events-none
-          "></div>
-
-          {/* Image */}
-          <img
-            src={item.image}
-            alt={item.title}
-            className="
-              w-full h-56 object-cover
-              transition-transform duration-500
-              group-hover:scale-110
-            "
-          />
-
-          {/* Content */}
-          <div className="relative p-6">
-            <h3 className="text-2xl font-bold mb-2">
-              {item.title}
-            </h3>
-
-            <p className="text-gray-400 mb-4">
-              {item.description}
-            </p>
-
-            <div className="flex flex-wrap gap-2 mb-4">
-              {item.techStack.map((tech, i) => (
-                <span
-                  key={i}
-                  className="
-                    px-3 py-1
-                    text-sm
-                    rounded-full
-                    bg-white/10
-                    text-white
-                    backdrop-blur-sm
-                  "
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-           <div className="flex gap-4">
-  {/* View Code (always visible) */}
-  <a
-    href={item.viewCoodeLink}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      px-4 py-2 bg-purple-500 rounded-lg text-white font-semibold
-      transition hover:scale-105
-    "
-  >
-    View Code
-  </a>
-
-  {/* Live Demo (only if link exists) */}
-  {item.liveDemoLink && (
-    <a
-      href={item.liveDemoLink}
-      target="_blank"
-      rel="noopener noreferrer"
+    {/* Projects Grid */}
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.25 }}
+  transition={{ staggerChildren: 0.15 }}
+  variants={{
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  }}
+  className="grid md:grid-cols-3 gap-6"
+>
+  {project.map((item, index) => (
+    <motion.div
+      key={index}
+      variants={{
+        hidden: { opacity: 0, scale: 0.9, y: 30 },
+        visible: { opacity: 1, scale: 1, y: 0 }
+      }}
+      whileHover={{ scale: 1.04, rotate: 0.4 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
       className="
-        px-4 py-2 border border-purple-500 rounded-lg text-white
-        font-semibold transition hover:bg-purple-500 hover:scale-105
+        group relative
+        bg-[#1e1e1e]
+        rounded-2xl
+        overflow-hidden
+        border border-white/10
+        transition-all duration-500
+        hover:-translate-y-2
+        hover:border-purple-400/60
+        hover:shadow-[0_20px_50px_rgba(168,85,247,0.25)]
       "
     >
-      Live Demo
-    </a>
-  )}
-</div>
+      {/* Gradient shine */}
+      <div className="
+        absolute inset-0
+        bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10
+        opacity-0
+        group-hover:opacity-100
+        transition duration-500
+        pointer-events-none
+      "></div>
 
-          </div>
+      {/* Image */}
+      <img
+        src={item.image}
+        alt={item.title}
+        className="
+          w-full h-56 object-cover
+          transition-transform duration-500
+          group-hover:scale-110
+        "
+      />
 
+      {/* Content */}
+      <div className="relative p-6">
+        <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
+
+        <p className="text-gray-400 mb-4">{item.description}</p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {item.techStack.map((tech, i) => (
+            <span
+              key={i}
+              className="
+                px-3 py-1 text-sm rounded-full
+                bg-white/10 text-white backdrop-blur-sm
+              "
+            >
+              {tech}
+            </span>
+          ))}
         </div>
-      ))}
-    </div>
+
+        <div className="flex gap-4">
+          {/* View Code */}
+          <a
+            href={item.viewCoodeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-purple-500 rounded-lg text-white font-semibold transition hover:scale-105"
+          >
+            View Code
+          </a>
+
+          {/* Conditional Live Demo */}
+          {item.liveDemoLink && (
+            <a
+              href={item.liveDemoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                px-4 py-2 border border-purple-500 rounded-lg text-white
+                font-semibold transition hover:bg-purple-500 hover:scale-105
+              "
+            >
+              Live Demo
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+``
 
   </div>
 </section>
