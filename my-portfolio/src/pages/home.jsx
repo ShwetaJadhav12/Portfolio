@@ -537,8 +537,14 @@ const Home = () => {
 
   <div className="relative max-w-7xl mx-auto z-10">
 
-    {/* Header */}
-    <div className="text-center mb-16">
+    {/* ===== HEADER WITH FIRST-TIME ANIMATION ===== */}
+    <motion.div
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="text-center mb-16"
+    >
       <span className="text-purple-300/80 text-xs tracking-widest uppercase">
         What I Work With
       </span>
@@ -550,26 +556,39 @@ const Home = () => {
       <p className="text-gray-300 mt-3 max-w-2xl mx-auto">
         A blend of development skills across Android, Web and modern tools.
       </p>
-    </div>
+    </motion.div>
 
-    {/* ===== Glass Floating Tile Grid ===== */}
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+    {/* ===== GRID — STAGGER FIRST-TIME ANIMATION ===== */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ staggerChildren: 0.12 }}
+      variants={{
+        hidden: { opacity: 0, y: 25 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
+    >
 
       {/* ANDROID */}
-    <div
-  className="
-    backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
-    shadow-[0_0_35px_rgba(168,85,247,.12)]
-    transition-all duration-500
-    hover:-translate-y-1
-    hover:border-purple-400
-    hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
-    animate-skillFloat
-  "
-  style={{ animationDelay: `${index * 0.6}s` }}
->
-
-
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="
+          backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
+          shadow-[0_0_35px_rgba(168,85,247,.12)]
+          transition-all duration-500
+          hover:-translate-y-1
+          hover:border-purple-400
+          hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
+          animate-skillFloat
+        "
+        style={{ animationDelay: `${index * 0.6}s` }}
+      >
         <h3 className="text-xl font-semibold mb-5">
           Android Development
         </h3>
@@ -601,22 +620,26 @@ const Home = () => {
             </span>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* FRONTEND */}
-      <div
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
         className="
-    backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
-    shadow-[0_0_35px_rgba(168,85,247,.12)]
-    transition-all duration-500
-    hover:-translate-y-1
-    hover:border-purple-400
-    hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
-    animate-skillFloat
-  "
-  style={{ animationDelay: `${index * 0.6}s` }}
->
-      
+          backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
+          shadow-[0_0_35px_rgba(168,85,247,.12)]
+          transition-all duration-500
+          hover:-translate-y-1
+          hover:border-purple-400
+          hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
+          animate-skillFloat
+        "
+        style={{ animationDelay: `${index * 0.6}s` }}
+      >
         <h3 className="text-xl font-semibold mb-5">
           Frontend Web
         </h3>
@@ -647,22 +670,26 @@ const Home = () => {
             </span>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* TOOLS */}
-      <div
-       className="
-    backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
-    shadow-[0_0_35px_rgba(168,85,247,.12)]
-    transition-all duration-500
-    hover:-translate-y-1
-    hover:border-purple-400
-    hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
-    animate-skillFloat
-  "
-  style={{ animationDelay: `${index * 0.6}s` }}
->
-      
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="
+          backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
+          shadow-[0_0_35px_rgba(168,85,247,.12)]
+          transition-all duration-500
+          hover:-translate-y-1
+          hover:border-purple-400
+          hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
+          animate-skillFloat
+        "
+        style={{ animationDelay: `${index * 0.6}s` }}
+      >
         <h3 className="text-xl font-semibold mb-5">
           Tools & Workflow
         </h3>
@@ -684,40 +711,24 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-    </div>
+    </motion.div>
   </div>
 
   {/* ===== Animation Keyframes ===== */}
   <style>
     {`
       @keyframes skillFloat {
-        0% {
-          transform: translateY(0px) translateX(0px) scale(1);
-          box-shadow: 0 0 35px rgba(168,85,247,.12);
-        }
-        50% {
-          transform: translateY(-12px) translateX(8px) scale(1.01);
-          box-shadow: 0 0 55px rgba(168,85,247,.22);
-        }
-        100% {
-          transform: translateY(0px) translateX(0px) scale(1);
-          box-shadow: 0 0 35px rgba(168,85,247,.12);
-        }
+        0%   { transform: translateY(0) translateX(0) scale(1); }
+        50%  { transform: translateY(-10px) translateX(6px) scale(1.01); }
+        100% { transform: translateY(0) translateX(0) scale(1); }
       }
-      
 
-      @keyframes skillFloat {
-  0%   { transform: translateY(0) translateX(0) scale(1); }
-  50%  { transform: translateY(-10px) translateX(6px) scale(1.01); }
-  100% { transform: translateY(0) translateX(0) scale(1); }
-}
-
-.animate-skillFloat {
-  animation: skillFloat 14s cubic-bezier(.45,.05,.25,1) infinite;
-  will-change: transform;
-}
+      .animate-skillFloat {
+        animation: skillFloat 14s cubic-bezier(.45,.05,.25,1) infinite;
+        will-change: transform;
+      }
     `}
   </style>
 
@@ -725,137 +736,103 @@ const Home = () => {
 
 
 
+
         
 
-        {/* ================= PROJECTS SECTION ================= */}
+ {/* ================= PROJECTS SECTION ================= */}
+
+{/* ================= PROJECTS SECTION ================= */}
 <section
   id="projects"
   className="relative py-28 px-6 md:px-16 bg-[#0d0d0d] text-white"
 >
-  {/* Background glow */}
-  <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/10 blur-[140px] rounded-full"></div>
-  <div className="absolute bottom-0 left-0 w-80 h-80 bg-pink-500/10 blur-[140px] rounded-full"></div>
-
   <div className="max-w-6xl mx-auto relative z-10">
 
-    {/* Heading */}
-    <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-      Projects
-    </h2>
-
-    {/* Accent line */}
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Projects</h2>
     <div className="w-14 h-[3px] bg-gradient-to-r from-purple-500 to-pink-500 mb-12"></div>
 
-    {/* Projects Grid */}
-    {/* Projects Grid */}
-<motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.25 }}
-  transition={{ staggerChildren: 0.15 }}
-  variants={{
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  }}
-  className="grid md:grid-cols-3 gap-6"
->
-  {project.map((item, index) => (
-    <motion.div
-      key={index}
-      variants={{
-        hidden: { opacity: 0, scale: 0.9, y: 30 },
-        visible: { opacity: 1, scale: 1, y: 0 }
-      }}
-      whileHover={{ scale: 1.04, rotate: 0.4 }}
-      whileTap={{ scale: 0.98 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="
-        group relative
-        bg-[#1e1e1e]
-        rounded-2xl
-        overflow-hidden
-        border border-white/10
-        transition-all duration-500
-        hover:-translate-y-2
-        hover:border-purple-400/60
-        hover:shadow-[0_20px_50px_rgba(168,85,247,0.25)]
-      "
-    >
-      {/* Gradient shine */}
-      <div className="
-        absolute inset-0
-        bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10
-        opacity-0
-        group-hover:opacity-100
-        transition duration-500
-        pointer-events-none
-      "></div>
-
-      {/* Image */}
-      <img
-        src={item.image}
-        alt={item.title}
-        className="
-          w-full h-56 object-cover
-          transition-transform duration-500
-          group-hover:scale-110
-        "
-      />
-
-      {/* Content */}
-      <div className="relative p-6">
-        <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
-
-        <p className="text-gray-400 mb-4">{item.description}</p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {item.techStack.map((tech, i) => (
-            <span
-              key={i}
+    {/* GROUP PROJECTS INTO ROWS OF 3 */}
+    {Array.from({ length: Math.ceil(project.length / 3) }).map((_, row) => (
+      <motion.div
+        key={row}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ staggerChildren: 0.12 }}
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: { opacity: 1, y: 0 }
+        }}
+        className="grid md:grid-cols-3 gap-6 mb-8"
+      >
+        {project
+          .slice(row * 3, row * 3 + 3)
+          .map((item, index) => (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
               className="
-                px-3 py-1 text-sm rounded-full
-                bg-white/10 text-white backdrop-blur-sm
+                group relative
+                bg-[#1e1e1e]
+                rounded-2xl
+                overflow-hidden
+                border border-white/10
+                transition-all duration-300
+                hover:-translate-y-1
+                hover:border-purple-400/60
               "
             >
-              {tech}
-            </span>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-56 object-cover group-hover:scale-105 transition"
+              />
+
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-400 mb-4">{item.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {item.techStack.map((tech, i) => (
+                    <span key={i} className="px-3 py-1 text-sm bg-white/10 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-4">
+                  <a
+                    href={item.viewCoodeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-purple-500 rounded-lg text-white"
+                  >
+                    View Code
+                  </a>
+
+                  {item.liveDemoLink && (
+                    <a
+                      href={item.liveDemoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 border border-purple-500 rounded-lg"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </div>
-
-        <div className="flex gap-4">
-          {/* View Code */}
-          <a
-            href={item.viewCoodeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-purple-500 rounded-lg text-white font-semibold transition hover:scale-105"
-          >
-            View Code
-          </a>
-
-          {/* Conditional Live Demo */}
-          {item.liveDemoLink && (
-            <a
-              href={item.liveDemoLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                px-4 py-2 border border-purple-500 rounded-lg text-white
-                font-semibold transition hover:bg-purple-500 hover:scale-105
-              "
-            >
-              Live Demo
-            </a>
-          )}
-        </div>
-      </div>
-    </motion.div>
-  ))}
-</motion.div>
-``
-
+      </motion.div>
+    ))}
   </div>
 </section>
+
 
 
         
@@ -863,189 +840,115 @@ const Home = () => {
            {/* ================= CODING PROFILES SECTION ================= */}
 <section
   id="coding"
-  className="relative py-28 px-6 md:px-16 bg-[#0d0d0d] text-white"
+  className="relative py-28 px-6 md:px-16 bg-[#020202] text-white overflow-hidden"
 >
-  
-  {/* Subtle background glow */}
-  <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/10 blur-[140px] rounded-full"></div>
-  <div className="absolute bottom-0 left-0 w-80 h-80 bg-pink-500/10 blur-[140px] rounded-full"></div>
 
-<div className="max-w-6xl mx-auto">
+  {/* Glow Background */}
+  <div className="absolute inset-0">
+    <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-purple-500/20 blur-[160px] rounded-full"></div>
+    <div className="absolute bottom-0 -right-24 w-[420px] h-[420px] bg-pink-500/20 blur-[160px] rounded-full"></div>
+  </div>
+
+  <div className="relative max-w-6xl mx-auto z-10">
 
     {/* Heading */}
-    <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-      Coding <span className="text-purple-400">Profile</span>
-    </h2>
+    <motion.h2
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45 }}
+      className="text-4xl md:text-5xl font-extrabold text-center"
+    >
+      Coding <span className="text-purple-400">Profiles</span>
+    </motion.h2>
 
-    {/* Accent line */}
-    <div className="w-14 h-[3px] bg-gradient-to-r from-purple-500 to-pink-500 mb-12"></div>
+    <div className="w-20 h-[3px] bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mt-4 mb-14 rounded-full"></div>
 
-   {/* Cards */}
-<div className=" reveal grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-6">
-
-  {/* HackerRank */}
-  <a
-    href="https://www.hackerrank.com/profile/ShwetaJadhav12"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      group relative h-28 rounded-2xl overflow-hidden
-      border border-white/10
-      hover:border-purple-400/50
-      hover:-translate-y-1
-      hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]
-      transition-all duration-300
-      flex items-center justify-center
-    "
-  >
-    {/* Background Image */}
-    <div
-      className="
-        absolute inset-0 bg-center bg-no-repeat bg-contain
-        opacity-20 blur-[1px]
-        group-hover:opacity-100 group-hover:blur-0
-        transition-all duration-300
-      "
-      style={{
-        backgroundImage:
-          "url(https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png)",
+    {/* Cards Grid */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ staggerChildren: 0.12 }}
+      variants={{
+        hidden: { opacity: 0, y: 25 },
+        visible: { opacity: 1, y: 0 }
       }}
-    />
+      className="grid grid-cols-2 sm:grid-cols-4 gap-6"
+    >
 
-    {/* Dark overlay */}
-    <div className="absolute inset-0 bg-black/60"></div>
+      {[
+        {
+          name: "HackerRank",
+          link: "https://www.hackerrank.com/profile/ShwetaJadhav12",
+          img: "https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png"
+        },
+        {
+          name: "LeetCode",
+          link: "https://leetcode.com/u/F8hOSt3GA9/",
+          img: "https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+        },
+        {
+          name: "GeeksforGeeks",
+          link: "https://www.geeksforgeeks.org/profile/shwetapjoqtd/",
+          img: "https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg"
+        },
+        {
+          name: "CodeChef",
+          link: "https://www.codechef.com/",
+          img: assets.codechef
+        }
+      ].map((site, i) => (
+        <motion.a
+          key={i}
+          variants={{
+            hidden: { opacity: 0, y: 25 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.98 }}
+          href={site.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            group relative h-32 rounded-2xl overflow-hidden
+            backdrop-blur-xl bg-white/5
+            border border-white/10
+            shadow-[0_0_35px_rgba(168,85,247,.12)]
+            hover:border-purple-400/50
+            hover:shadow-[0_0_40px_rgba(168,85,247,.35)]
+            transition-all duration-300 flex items-center justify-center
+          "
+        >
+          {/* Logo */}
+          <div
+            className="
+              absolute inset-0 bg-center bg-no-repeat bg-contain
+              opacity-30 group-hover:opacity-80
+              scale-95 group-hover:scale-110
+              transition-all duration-300
+            "
+            style={{ backgroundImage: `url(${site.img})` }}
+          />
 
-    {/* Text */}
-    <span className="
-      relative z-10 font-semibold
-      text-lg sm:text-xl md:text-2xl
-      group-hover:text-white transition
-    ">
-      HackerRank
-    </span>
-  </a>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition"></div>
 
- 
-  <a
-    href="https://leetcode.com/u/F8hOSt3GA9/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      group relative h-28 rounded-2xl overflow-hidden
-      border border-white/10
-      hover:border-purple-400/50
-      hover:-translate-y-1
-      hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]
-      transition-all duration-300
-      flex items-center justify-center
-    "
-  >
-    <div
-      className="
-        absolute inset-0 bg-center bg-no-repeat bg-contain
-        opacity-40 blur-[1px]
-        group-hover:opacity-100 group-hover:blur-0
-        transition-all duration-300
-      "
-      style={{
-        backgroundImage:
-          "url(https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png)",
-      }}
-    />
+          {/* Title */}
+          <span className="
+            relative z-10 font-semibold tracking-wide
+            text-lg sm:text-xl
+            group-hover:text-white text-gray-200
+            transition
+          ">
+            {site.name}
+          </span>
+        </motion.a>
+      ))}
 
-    <div className="absolute inset-0 bg-black/60"></div>
-
-    <span className="
-      relative z-10 font-semibold
-      text-lg sm:text-xl md:text-2xl
-      group-hover:text-white transition
-    ">
-      LeetCode
-    </span>
-  </a>
-
-  {/* GFG */}
-  <a
-    href="https://www.geeksforgeeks.org/profile/shwetapjoqtd/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      group relative h-28 rounded-2xl overflow-hidden
-      border border-white/10
-      hover:border-purple-400/50
-      hover:-translate-y-1
-      hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]
-      transition-all duration-300
-      flex items-center justify-center
-    "
-  >
-    <div
-      className="
-        absolute inset-0 bg-center bg-no-repeat bg-contain
-        opacity-40 blur-[1px]
-        group-hover:opacity-100 group-hover:blur-0
-        transition-all duration-300
-      "
-      style={{
-        backgroundImage:
-          "url(https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg)",
-      }}
-    />
-
-    <div className="absolute inset-0 bg-black/60"></div>
-
-    <span className="
-      relative z-10 font-semibold
-      text-lg sm:text-xl md:text-2xl
-      group-hover:text-white transition
-    ">
-      GFG
-    </span>
-  </a>
-
-  {/* CodeChef */}
-  <a
-    href="https://www.codechef.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      group relative h-28 rounded-2xl overflow-hidden
-      border border-white/10
-      hover:border-purple-400/50
-      hover:-translate-y-1
-      hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]
-      transition-all duration-300
-      flex items-center justify-center
-    "
-  >
-    <div
-      className="
-        absolute inset-0 bg-center bg-no-repeat bg-contain
-        opacity-20 blur-[1px]
-        group-hover:opacity-100 group-hover:blur-0
-        transition-all duration-300
-      "
-      style={{
-        backgroundImage:
-            `url(${assets.codechef})`,
-      }}
-    />
-
-    <div className="absolute inset-0 bg-black/60"></div>
-
-    <span className="
-      relative z-10 font-semibold
-      text-lg sm:text-xl md:text-2xl
-      group-hover:text-white transition
-    ">
-      CodeChef
-    </span>
-  </a>
-
-</div>
+    </motion.div>
 
   </div>
-  
 </section>
 
 <section

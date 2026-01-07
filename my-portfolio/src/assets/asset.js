@@ -38,8 +38,10 @@ import Finmate_logo from "./pro_logo/Finmate_logo.png";
 import Taskmang from "./pro_logo/Taskmang.png";
 import travel from "./pro_logo/travel.png";
 import recipe from "./pro_logo/recipe.png";
-import portfolio_img from "./pro_logo/portfolio_img.png";
 import Learn2excel from "./pro_logo/Learn2excel.png";
+import explorestates from "./pro_logo/explorestates.png";
+import unitconverter from "./pro_logo/UnitConverter.png";
+import powerbi from "./pro_logo/powerbi.png";
 /* -------------------------------------------------------------------------- */
 /*                                  HOME DATA                                 */
 /* -------------------------------------------------------------------------- */
@@ -151,7 +153,7 @@ export const project = [
   },
   {
     title:"Dashboard Visualization"
-    ,image:ecom,
+    ,image:powerbi,
     description:
       "A Power BI dashboard that visualizes key performance indicators and business metrics, providing actionable insights through interactive charts and graphs."
     ,
@@ -160,7 +162,7 @@ export const project = [
   },
 {
   title: "Explore States",
-    image:ecom,
+    image:explorestates,
     description:
       "An application that provides detailed information about different states, including tourist attractions, cultural highlights, and local cuisine.",
     techStack: ["Kotlin", "XML","Android Studio"],
@@ -168,7 +170,7 @@ export const project = [
 },
    {
     title:"Unit Converter App",
-    image:ecom,
+    image:unitconverter,
     description:
       "A unit converter app that allows users to easily convert between various units of measurement, including length, weight, temperature, and more.",
     techStack: ["Kotlin", "Jetpack Compose"],
@@ -223,8 +225,11 @@ export const assets = {
     Taskmang,
     travel,
     recipe,
-    portfolio_img,
-    Learn2excel
+    
+    Learn2excel,
+    explorestates,
+    unitconverter,
+    powerbi
   },
   techLogos: {
     c,
