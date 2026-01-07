@@ -150,9 +150,9 @@ const Home = () => {
 
     <div className="mt-8 flex justify-center gap-4">
       {[
-        { Icon: FaGithub, link: "https://github.com/yourusername" },
-        { Icon: FaLinkedinIn, link: "https://linkedin.com/in/yourusername" },
-        { Icon: FaEnvelope, link: "mailto:your-email@example.com" }
+        { Icon: FaGithub, link: "https://github.com/ShwetaJadhav12" },
+        { Icon: FaLinkedinIn, link: "https://www.linkedin.com/in/shweta-jadhav-9510b5292/" },
+        { Icon: FaEnvelope, link: "mailto:shwetajadhav12@gmail.com" }
       ].map(({ Icon, link }, i) => (
         <a
           key={i}
@@ -1173,7 +1173,7 @@ const Home = () => {
           <div>
             <p className="font-semibold text-sm sm:text-base">Email</p>
             <p className="text-gray-400 text-sm sm:text-base">
-              shwetajadhav2002@gmail.com
+              shwetapjadhav12@gmail.com
             </p>
           </div>
         </div>
@@ -1189,25 +1189,30 @@ const Home = () => {
       </h4>
 
       <div className="flex gap-3 sm:gap-4">
-        {[FaGithub, FaLinkedinIn].map((Icon, i) => (
-          <a
-            key={i}
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              w-10 h-10 sm:w-12 sm:h-12 rounded-full
-              flex items-center justify-center
-              bg-[#1f1f1f]
-              border border-white/10
-              hover:bg-purple-500 hover:scale-110
-              transition-all duration-300
-            "
-          >
-            <Icon className="text-sm sm:text-lg text-white" />
-          </a>
-        ))}
-      </div>
+  {[
+    { Icon: FaGithub, link: "https://github.com/ShwetaJadhav12" },
+    { Icon: FaLinkedinIn, link: "https://www.linkedin.com/in/shweta-jadhav-9510b5292/" },
+    { Icon: FaEnvelope, link: "mailto:shwetapjadhav12@gmail.com" }
+  ].map(({ Icon, link }, i) => (
+    <a
+      key={i}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        w-10 h-10 sm:w-12 sm:h-12 rounded-full
+        flex items-center justify-center
+        bg-[#1f1f1f]
+        border border-white/10
+        hover:bg-purple-500 hover:scale-110
+        transition-all duration-300
+      "
+    >
+      <Icon className="text-sm sm:text-lg text-white" />
+    </a>
+  ))}
+</div>
+
     </div>
 
     {/* RIGHT — FORM */}

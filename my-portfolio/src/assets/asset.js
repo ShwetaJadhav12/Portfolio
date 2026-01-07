@@ -115,12 +115,12 @@ export const project = [
   },
 
   {
-    title: "Learn2Exce- An onLine Skill Development Platform",
+    title: "Learn2Excel- An onLine Skill Development Platform",
     image: Learn2excel,
     description:
       "An online skill development platform that offers a variety of courses and tutorials to help users enhance their skills and advance their careers.",
     techStack: ["HTML","CSS","JavaScript",,"NodeJS","ExpressJS","SQL"],
-    viewCoodeLink: "https://github.com/ShwetaJadhav12/Learn2Exce"
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/Learn2Excel"
   },
   
   {
@@ -129,8 +129,7 @@ export const project = [
     description:
       "A task management app that helps users organize their daily tasks, set reminders, and track productivity with a clean and intuitive interface.",
     techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture", "Room DB,Androd Sudio"],
-    viewCoodeLink: "#",
-    liveDemoLink: "#",
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/Tamizhan_Skiils_Project1_Student_Task_Manager_App",
   },
   {
     title: "E-Commerce App",
@@ -138,8 +137,8 @@ export const project = [
     description:
       "A sleek and modern E-Commerce UI built with React and Tailwind CSS, featuring a responsive design, intuitive navigation, and dynamic product listings to enhance the online shopping experience.",
   techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture","Firebase","GitHub","Razorpay"],
-    viewCoodeLink: "#",
-    liveDemoLink: "#",
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/Project_2_Ecommerce_App",
+    
   },
   {
     title: "RecipeFinder - Recipe Search App",
@@ -147,7 +146,7 @@ export const project = [
     description:
       "A recipe search app that allows users to find recipes based on ingredients, dietary preferences, and cooking time, complete with step-by-step instructions and nutritional information.",
     techStack: ["Kotlin", "Jetpack Compose", "Api Integration"],
-    viewCoodeLink: "#",
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/RecipeApp_FetchAndDisplay",
     
   },
   {
@@ -160,20 +159,20 @@ export const project = [
     viewCoodeLink: "https://github.com/ShwetaJadhav12/Power_Bi_sem5?tab=readme-ov-file",
   },
 {
-    title: "BMI Calculator",
-    image: bmi,
+  title: "Explore States",
+    image:ecom,
     description:
-      "A simple and user-friendly app that helps users track their health  goals by calculating their Body Mass Index based on their weight and height inputs.",
-    techStack: ["Kotlin", "Jetpack Compose", "MVVM Architecture"],
-    viewCoodeLink: "#",
-  },
+      "An application that provides detailed information about different states, including tourist attractions, cultural highlights, and local cuisine.",
+    techStack: ["Kotlin", "XML","Android Studio"],
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/LetsExploreStates"
+},
    {
     title:"Unit Converter App",
     image:ecom,
     description:
       "A unit converter app that allows users to easily convert between various units of measurement, including length, weight, temperature, and more.",
     techStack: ["Kotlin", "Jetpack Compose"],
-    viewCoodeLink: "#",
+    viewCoodeLink: "https://github.com/ShwetaJadhav12/Android-Jetpack-Projects/tree/main/unitConvertor",
    
   },
   
