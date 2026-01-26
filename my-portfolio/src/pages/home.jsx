@@ -4,6 +4,9 @@ import { assets } from "../assets/asset";
 import { project } from "../assets/asset.js";
 import { experience } from "../assets/asset";
 import { motion } from "framer-motion";
+import Chatbot from "../Chatbot";
+
+
 
 
 import {
@@ -14,7 +17,6 @@ import {
   FaMapMarkerAlt,
   FaPaperPlane,
 } from "react-icons/fa";
-
 
 
 const Home = () => {
@@ -570,6 +572,57 @@ const Home = () => {
       }}
       className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
     >
+    {/* LANGUAGES */}
+<motion.div
+  variants={{
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  }}
+  transition={{ duration: 0.45, ease: "easeOut" }}
+  className="
+    backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/15
+    shadow-[0_0_35px_rgba(168,85,247,.12)]
+    transition-all duration-500
+    hover:-translate-y-1
+    hover:border-purple-400
+    hover:shadow-[0_10px_40px_rgba(168,85,247,0.35)]
+    animate-skillFloat
+  "
+  style={{ animationDelay: `${index * 0.6}s` }}
+>
+  <h3 className="text-xl font-semibold mb-5">
+    Languages
+  </h3>
+
+  <div className="flex flex-wrap gap-3">
+    {[
+      { name: "Java", logo: assets.techLogos.java },
+      { name: "Kotlin", logo: assets.techLogos.kotlin },
+      { name: "JavaScript", logo: assets.techLogos.javascript },
+      { name: "Python", logo: assets.techLogos.python },
+    ].map((s, i) => (
+      <div
+        key={i}
+        className="flex items-center gap-2 px-4 py-2
+        bg-white/10 rounded-full text-sm text-gray-200
+        border border-white/10 hover:bg-white/20 transition"
+      >
+        <img src={s.logo} className="w-4 h-4" />
+        <span>{s.name}</span>
+      </div>
+    ))}
+
+    {["OOPs", "DSA", "Problem Solving"].map((s, i) => (
+      <span
+        key={i}
+        className="px-4 py-2 bg-white/10 rounded-full text-sm text-gray-300
+        border border-white/10 hover:bg-white/20 transition"
+      >
+        {s}
+      </span>
+    ))}
+  </div>
+</motion.div>
 
       {/* ANDROID */}
       <motion.div
@@ -1039,145 +1092,70 @@ const Home = () => {
 {/* ================= CONTACT SECTION ================= */}
 <section
   id="contact"
-  className="relative py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-[#0d0d0f] text-white"
+  className="relative py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-[#0d0d0f] text-white overflow-hidden"
 >
   {/* Heading */}
-  <div className="text-center mb-10">
+  <div className="text-center mb-12">
     <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold">
       Get in <span className="text-purple-400">Touch</span>
     </h2>
+    <p className="text-gray-400 mt-3 max-w-xl mx-auto">
+      Feel free to reach out — I’m always open to new opportunities and collaborations.
+    </p>
   </div>
 
   {/* Background glow */}
-  <div className="absolute -top-28 -left-20 w-72 h-72 sm:w-80 sm:h-80 bg-purple-500/15 blur-[120px] rounded-full"></div>
-  <div className="absolute bottom-0 -right-20 w-72 h-72 sm:w-80 sm:h-80 bg-purple-500/10 blur-[120px] rounded-full"></div>
+  <div className="absolute -top-28 -left-20 w-72 h-72 bg-purple-500/20 blur-[120px] rounded-full"></div>
+  <div className="absolute bottom-0 -right-20 w-72 h-72 bg-purple-500/10 blur-[120px] rounded-full"></div>
 
-  {/* Main Grid */}
-  <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+  {/* Contact Card */}
+  <div className="relative max-w-xl mx-auto bg-[#121212] rounded-3xl p-8 sm:p-10 border border-white/10 text-center">
 
-    {/* LEFT — INFO */}
-    <div className="bg-[#121212] rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10">
-      <h3 className="text-xl sm:text-2xl font-bold text-purple-400 mb-4">
-        Contact Information
-      </h3>
+    <h3 className="text-2xl font-bold text-purple-400 mb-4">
+      Contact Information
+    </h3>
 
-      <p className="text-gray-400 mb-8 leading-relaxed text-sm sm:text-base">
-        Feel free to reach out through any of the following channels.
-        I’m always open to discussing new projects and opportunities.
-      </p>
+    <p className="text-gray-400 mb-8">
+      You can reach me directly or connect with me on these platforms.
+    </p>
 
-      <div className="space-y-5 sm:space-y-6">
-
-        {/* Email */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-            <FaEnvelope className="text-purple-400 text-lg sm:text-xl" />
-          </div>
-          <div>
-            <p className="font-semibold text-sm sm:text-base">Email</p>
-            <p className="text-gray-400 text-sm sm:text-base">
-              shwetapjadhav12@gmail.com
-            </p>
-          </div>
-        </div>
-
+    {/* Email */}
+    <div className="flex items-center justify-center gap-4 mb-10">
+      <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+        <FaEnvelope className="text-purple-400 text-xl" />
       </div>
-
-      {/* Divider */}
-      <div className="h-px bg-white/10 my-8 sm:my-10"></div>
-
-      {/* Socials */}
-      <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
-        Connect With Me
-      </h4>
-
-      <div className="flex gap-3 sm:gap-4">
-  {[
-    { Icon: FaGithub, link: "https://github.com/ShwetaJadhav12" },
-    { Icon: FaLinkedinIn, link: "https://www.linkedin.com/in/shweta-jadhav-9510b5292/" },
-    { Icon: FaEnvelope, link: "mailto:shwetapjadhav12@gmail.com" }
-  ].map(({ Icon, link }, i) => (
-    <a
-      key={i}
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        w-10 h-10 sm:w-12 sm:h-12 rounded-full
-        flex items-center justify-center
-        bg-[#1f1f1f]
-        border border-white/10
-        hover:bg-purple-500 hover:scale-110
-        transition-all duration-300
-      "
-    >
-      <Icon className="text-sm sm:text-lg text-white" />
-    </a>
-  ))}
-</div>
-
+      <p className="text-gray-300">
+        shwetapjadhav12@gmail.com
+      </p>
     </div>
 
-    {/* RIGHT — FORM */}
-    <div className="bg-[#121212] rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10">
-      <form className="space-y-6">
-
-        {/* Name & Email */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div>
-            <label className="text-sm text-gray-300 mb-2 block">
-              Your Name
-            </label>
-            <input
-              type="text"
-              className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-purple-500"
-            />
-          </div>
-
-          <div>
-            <label className="text-sm text-gray-300 mb-2 block">
-              Your Email
-            </label>
-            <input
-              type="email"
-              className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-purple-500"
-            />
-          </div>
-        </div>
-
-        {/* Message */}
-        <div>
-          <label className="text-sm text-gray-300 mb-2 block">
-            Message
-          </label>
-          <textarea
-            rows="5"
-            className="w-full bg-[#0d0d0d] rounded-xl px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-purple-500"
-          ></textarea>
-        </div>
-
-        {/* Button */}
-        <button
-          type="submit"
+    {/* Socials */}
+    <div className="flex justify-center gap-6">
+      {[
+        { Icon: FaGithub, link: "https://github.com/ShwetaJadhav12" },
+        { Icon: FaLinkedinIn, link: "https://www.linkedin.com/in/shweta-jadhav-9510b5292/" },
+        { Icon: FaEnvelope, link: "mailto:shwetapjadhav12@gmail.com" }
+      ].map(({ Icon, link }, i) => (
+        <a
+          key={i}
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="
-            inline-flex items-center gap-2
-            bg-gradient-to-r from-purple-500 to-purple-700
-            px-6 sm:px-8 py-3 rounded-full
-            text-sm sm:text-base font-semibold
-            hover:scale-105
-            hover:shadow-[0_0_35px_rgba(168,85,247,0.6)]
+            w-14 h-14 rounded-full flex items-center justify-center
+            bg-[#1f1f1f] border border-white/10
+            hover:bg-purple-500 hover:scale-110
             transition-all duration-300
           "
         >
-          <FaPaperPlane className="text-sm sm:text-base" />
-          Send Message
-        </button>
-
-      </form>
+          <Icon className="text-xl text-white" />
+        </a>
+      ))}
     </div>
 
   </div>
 </section>
+
 
 
 <footer
@@ -1195,6 +1173,7 @@ const Home = () => {
     </p>
   </div>
 </footer>
+<Chatbot />
 
 
         </>
