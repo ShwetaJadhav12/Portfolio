@@ -9,24 +9,37 @@ export default function Chatbot() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
+ const sendMessage = async () => {
+  if (!input.trim()) return;
 
-    const userMsg = { sender: "user", text: input };
-    setMessages((prev) => [...prev, userMsg]);
-    setInput("");
-    setLoading(true);
+  const userMsg = { sender: "user", text: input };
+  setMessages((prev) => [...prev, userMsg]);
+  setInput("");
+  setLoading(true);
 
-    const res = await fetch("http://localhost:3000/chat", {
+  try {
+    const res = await fetch("https://portfolio-0njv.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: userMsg.text }),
     });
 
     const data = await res.json();
-    setMessages((prev) => [...prev, { sender: "bot", text: data.reply }]);
-    setLoading(false);
-  };
+
+    setMessages((prev) => [
+      ...prev,
+      { sender: "bot", text: data.reply }
+    ]);
+  } catch (err) {
+    setMessages((prev) => [
+      ...prev,
+      { sender: "bot", text: "Backend not responding 😢" }
+    ]);
+  }
+
+  setLoading(false);
+};
+
 
   return (
     <>
